@@ -1,8 +1,31 @@
-import React from 'react'
+import HeaderBox from "@/components/HeaderBox";
+import TotalBalanceBox from "@/components/TotalBalanceBox";
+
 
 const Home = () => {
+  const loggedIn = { firstName: "Tamia"};
+  // const loggedIn = { firstName: ""};
+
   return (
-    <div>Home</div>
+    <section className='home'>
+      <div className='home-content'>
+        <header className='home-header'>
+          {/* this will call HeaderBox.tsx in components file */}
+          <HeaderBox 
+            type="greeting"
+            title="Welcome"
+            user={loggedIn?.firstName || "Guest"}
+            subtext="Access and manage your account and transactions efficiently."
+          />
+          
+          <TotalBalanceBox 
+            accounts={[]}
+            totalBanks={1}
+            totalCurrentBalance={1250.35}
+          />
+        </header>
+      </div>
+    </section>
   )
 }
 
